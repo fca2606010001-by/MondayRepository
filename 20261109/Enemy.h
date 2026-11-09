@@ -1,11 +1,16 @@
-#pragma once
+#pragma onc
+using namespace std;
 class Enemy
 {
+private:
+	int hp;
 public:
 	Enemy();
 	~Enemy();
 
-	void Update();
-	void Draw();
+	int GetHp()const;
+	void Draw()const;
+
+
 };
 

@@ -1,17 +1,26 @@
-#include <iostream>
+#include<iostream>
+#include<memory>
 #include"Enemy.h"
 
-int main(void)
-
+void ShowEnemy(const Enemy& enemy)
 {
+	std::cout << "関数内のEnemyを表示する" << endl;
+	enemy.Draw();
+}
 
-	std::cout << "ゲーム開始" << std::endl;
-	std::unique_ptr<Enemy> enemy = std::make_unique<Enemy>();
+int main(void)
+{
+	//unique_ptrでEnemyを生成
+	std::unique_ptr<Enemy> enemy;
 
-	enemy->Update();
+	std::cout << "生成した敵" << std::endl;
+
 	enemy->Draw();
 
-	std::cout << "ゲーム終了\n";
+	ShowEnemy(*enemy);
+
+	std::cout << "関数を呼び出した後" << std::endl;
+	enemy->Draw();
 
 	return 0;
 }
